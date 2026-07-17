@@ -1,0 +1,13 @@
+# Lokale backups — nooit deployen
+backup/
+
+# Claude Code werkbestanden
+.claude/
+
+# OS-rommel
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
+*.swp

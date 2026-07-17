@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ravelli — Sieraden, tassen & accessoires · Wassenaar</title>
+<meta name="description" content="Ravelli boutique in Wassenaar: unieke sieraden, oorbellen, tassen en accessoires. Persoonlijk advies door Karin. Langstraat 50, Wassenaar.">
+<link rel="canonical" href="https://karin-ravelli.nl/">
+
+<!-- Open Graph -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://karin-ravelli.nl/">
+<meta property="og:title"       content="Ravelli — Sieraden & accessoires · Wassenaar">
+<meta property="og:description" content="Boutique in Wassenaar met een zorgvuldig samengestelde collectie sieraden, oorbellen, tassen en accessoires.">
+<meta property="og:image"       content="https://karin-ravelli.nl/assets/img/karin-portret.jpg">
+<meta property="og:locale"      content="nl_NL">
+
+<!-- Favicon: R in brass op espresso -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232A2420'/%3E%3Ctext x='50' y='73' font-family='Georgia,serif' font-size='66' font-weight='300' fill='%23A8854E' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivory:#FAF6EF;
+    --sand:#F1E8D9;
+    --espresso:#2A2420;
+    --muted:#6E645A;
+    --brass:#A8854E;
+    --brass-dark:#8A6C3B;
+    --line:#DDD1BD;
+    --display:'Fraunces',Georgia,serif;
+    --body:'Jost',system-ui,sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--ivory);
+    color:var(--espresso);
+    line-height:1.65;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  section{scroll-margin-top:84px;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.08;}
+  .eyebrow{
+    font-family:var(--body);text-transform:uppercase;
+    letter-spacing:.32em;font-size:.72rem;color:var(--brass-dark);font-weight:400;
+  }
+
+  /* ── HEADER ─────────────────────────────── */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,246,239,.85);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;}
+  .brand span{color:var(--brass);}
+  nav ul{list-style:none;display:flex;gap:28px;flex-wrap:wrap;justify-content:flex-end;}
+  nav a{
+    font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);transition:color .25s;position:relative;padding-bottom:3px;
+  }
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--brass);transition:width .3s;
+  }
+  nav a:hover{color:var(--espresso);}
+  nav a:hover::after{width:100%;}
+
+  /* ── HERO ────────────────────────────────── */
+  .hero{padding:80px 0 90px;}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .hero-text .eyebrow{display:block;margin-bottom:22px;}
+  .hero-text h1{font-size:clamp(3rem,6vw,5.2rem);}
+  .hero-text h1 em{font-style:italic;color:var(--brass);}
+  .hero-text p{margin-top:26px;max-width:30ch;color:var(--muted);font-size:1.06rem;line-height:1.8;}
+  .hero-cta{
+    display:inline-block;margin-top:34px;
+    font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+    border:1px solid var(--espresso);padding:14px 30px;border-radius:40px;
+    transition:all .3s;
+  }
+  .hero-cta:hover{background:var(--espresso);color:var(--ivory);}
+  .hero-img{position:relative;}
+  .hero-img img{
+    width:100%;height:540px;object-fit:cover;border-radius:4px;
+    box-shadow:0 30px 60px -28px rgba(42,36,32,.45);
+  }
+  .hero-img::before{
+    content:"";position:absolute;inset:18px -18px -18px 18px;
+    border:1px solid var(--brass);border-radius:4px;z-index:-1;
+  }
+
+  /* ── OVER KARIN ──────────────────────────── */
+  .over-karin{background:var(--sand);padding:96px 0;}
+  .over-karin-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;}
+  .over-karin-img{position:relative;}
+  .over-karin-img img{
+    width:100%;height:500px;object-fit:cover;object-position:top center;
+    border-radius:4px;box-shadow:0 24px 48px -20px rgba(42,36,32,.4);
+  }
+  .over-karin-img::after{
+    content:"";position:absolute;inset:-12px 12px 12px -12px;
+    border:1px solid var(--brass);border-radius:4px;z-index:-1;
+  }
+  .over-karin h2{font-size:clamp(1.9rem,3.5vw,2.8rem);margin-top:14px;}
+  .over-karin p{margin-top:20px;color:var(--muted);font-size:1.03rem;line-height:1.8;}
+  .over-karin p + p{margin-top:14px;}
+
+  /* ── CATEGORIES ──────────────────────────── */
+  .cats{padding:96px 0;}
+  .section-head{text-align:center;padding-bottom:48px;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin-top:14px;}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .cat{
+    position:relative;overflow:hidden;border-radius:4px;
+    aspect-ratio:3/4;display:block;
+  }
+  .cat img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .9s cubic-bezier(.2,.8,.2,1);
+  }
+  .cat:hover img{transform:scale(1.07);}
+  .cat::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(30,24,20,.65) 0%,rgba(30,24,20,0) 55%);
+  }
+  .cat-label{
+    position:absolute;left:0;right:0;bottom:26px;z-index:2;text-align:center;
+    color:#fff;font-family:var(--display);font-size:1.7rem;letter-spacing:.04em;
+  }
+  .cat-label small{
+    display:block;font-family:var(--body);font-size:.7rem;
+    letter-spacing:.22em;text-transform:uppercase;opacity:.85;margin-top:4px;
+  }
+
+  /* ── MERKEN ──────────────────────────────── */
+  .merken{background:var(--espresso);color:var(--ivory);padding:96px 0;}
+  .merken .eyebrow{color:var(--brass);}
+  .merken .section-head h2{color:var(--ivory);}
+  .merk-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .merk-tile{
+    background:#fff;border-radius:4px;
+    padding:24px 16px;
+    display:flex;align-items:center;justify-content:center;
+    aspect-ratio:3/2;
+    transition:transform .25s,box-shadow .25s;
+    overflow:hidden;
+  }
+  .merk-tile:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 32px -8px rgba(0,0,0,.45);
+  }
+  .merk-tile img{
+    max-width:100%;max-height:100%;
+    object-fit:contain;
+  }
+
+  /* ── CONTACT ─────────────────────────────── */
+  .contact{background:var(--sand);padding:96px 0;}
+  .contact-head{padding-bottom:40px;}
+  .contact-head .eyebrow{display:block;margin-bottom:14px;}
+  .contact-head h2{font-size:clamp(1.9rem,3.5vw,2.8rem);}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:0;}
+  .contact h3{font-family:var(--display);font-size:1.3rem;font-weight:300;margin-bottom:18px;}
+  .contact ul{list-style:none;color:var(--muted);}
+  .contact li{padding:5px 0;font-size:1rem;}
+  .contact a:hover{color:var(--brass-dark);}
+
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:16px;padding:12px 22px;border-radius:40px;
+    background:#25D366;color:#fff;font-size:.85rem;
+    letter-spacing:.08em;font-weight:400;
+    transition:background .25s,transform .2s;
+  }
+  .btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);color:#fff;}
+  .btn-wa svg{flex-shrink:0;}
+
+  .hours-row{
+    display:flex;justify-content:space-between;
+    border-bottom:1px dashed var(--line);padding:7px 0;max-width:280px;
+  }
+  .hours-row span:last-child{color:var(--espresso);}
+  .closed{color:var(--brass-dark);font-style:italic;}
+
+  /* ── FOOTER ──────────────────────────────── */
+  footer{
+    background:var(--espresso);color:#C9BEAF;
+    text-align:center;padding:40px 0;font-size:.82rem;letter-spacing:.04em;
+  }
+  footer .brand{font-size:1.4rem;color:var(--ivory);display:inline-block;margin-bottom:8px;}
+
+  /* ── REVEAL ──────────────────────────────── */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ── RESPONSIVE ──────────────────────────── */
+  @media(max-width:900px){
+    .wrap{padding:0 22px;}
+    .nav{height:auto;flex-direction:column;gap:12px;padding:16px 0;}
+    nav ul{justify-content:center;gap:16px;}
+    .hero{padding:48px 0 60px;}
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-img{order:-1;}
+    .hero-img img{height:380px;}
+    .hero-img::before{inset:12px -12px -12px 12px;}
+    .over-karin-grid{grid-template-columns:1fr;gap:40px;}
+    .over-karin-img img{height:360px;}
+    .cat-grid{grid-template-columns:1fr 1fr;gap:14px;}
+    .merk-grid{grid-template-columns:repeat(3,1fr);}
+    .contact-grid{grid-template-columns:1fr;gap:36px;}
+  }
+  @media(max-width:520px){
+    .cat-grid{grid-template-columns:1fr;}
+    .merk-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">Ravel<span>li</span></a>
+    <nav>
+      <ul>
+        <li><a href="kettingen.html">Kettingen</a></li>
+        <li><a href="oorbellen.html">Oorbellen</a></li>
+        <li><a href="tassen.html">Tassen</a></li>
+        <li><a href="#merken">Merken</a></li>
+        <li><a href="#over">Over Karin</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ── HERO ───────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-text reveal">
+      <span class="eyebrow">Boutique · Wassenaar</span>
+      <h1>Accessoires<br>met <em>karakter</em></h1>
+      <p>Een zorgvuldig samengestelde collectie kettingen, oorbellen en tassen — uitgekozen met liefde voor detail.</p>
+      <a href="#contact" class="hero-cta">Bezoek de winkel</a>
+    </div>
+    <div class="hero-img reveal">
+      <img src="assets/img/hero.jpg" alt="Sfeerbeeld Ravelli boutique" width="800" height="540">
+    </div>
+  </div>
+</section>
+
+<!-- ── OVER KARIN ─────────────────────────── -->
+<section class="over-karin" id="over">
+  <div class="wrap over-karin-grid">
+    <div class="over-karin-img reveal">
+      <img src="assets/img/karin-portret.jpg" alt="Karin Ravelli" width="900" height="850">
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Over Karin</span>
+      <h2>Jarenlange passie voor stijl en vakmanschap</h2>
+      <p>Karin Ravelli is in 2003 als ondernemer gestart met haar eigen label. Daarvoor ontwierp zij diverse mode-accessoires — sieraden, tassen en ceinturen — die aan winkels over de hele wereld werden verkocht.</p>
+      <p>Haar grootste wens was altijd een eigen winkel. In 2015 ging die droom in vervulling: de Ravelli-winkel opende aan de Wassenaarse Langstraat. In korte tijd groeide zij uit tot 'the place to be' voor mooie en bijzondere sieraden en accessoires.</p>
+      <p>Karin heeft jarenlange ervaring en een grote kennis van kwaliteit en schoonheid. Het assortiment is exclusief en uniek, met steeds wisselende collecties. Klanten krijgen persoonlijke aandacht, met excellente service en een vriendelijke, hulpvaardige werkwijze.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CATEGORIEËN ────────────────────────── -->
+<section class="cats" id="collectie">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">De collectie</span>
+      <h2>Ontdek wat er is</h2>
+    </div>
+    <div class="cat-grid">
+      <a class="cat reveal" href="kettingen.html">
+        <img src="assets/img/kettingen.jpg" alt="Kettingen" loading="lazy">
+        <span class="cat-label">Kettingen<small>Sieraden</small></span>
+      </a>
+      <a class="cat reveal" href="oorbellen.html">
+        <img src="assets/img/oorbellen.jpg" alt="Oorbellen" loading="lazy">
+        <span class="cat-label">Oorbellen<small>Sieraden</small></span>
+      </a>
+      <a class="cat reveal" href="tassen.html">
+        <img src="assets/img/tassen.jpg" alt="Tassen" loading="lazy">
+        <span class="cat-label">Tassen<small>Accessoires</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── MERKEN ─────────────────────────────── -->
+<section class="merken" id="merken">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Wat wij voeren</span>
+      <h2>Onze merken</h2>
+    </div>
+    <div class="merk-grid reveal"><!--BUILD:MERKEN-->
+  <div class="merk-tile">
+    <img src="merken/camps.png" alt="Camps" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/coco.jpeg" alt="Coco" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/franck.png" alt="Franck" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/fushi.jpeg" alt="Fushi" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/gas.png" alt="Gas" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/kalli.png" alt="Kalli" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/karma.png" alt="Karma" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/la-griffe.png" alt="La Griffe" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/leju-tropical-elegance.webp" alt="Leju Tropical Elegance" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/lott-gioielli.png" alt="Lott Gioielli" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/mur.png" alt="Mur" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/nunoo.webp" alt="Nunoo" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/nyka.jpg" alt="Nyka" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/olivia-dar.png" alt="Olivia Dar" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/santibe.png" alt="Santibe" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/satellite.jpg" alt="Satellite" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/sorena.webp" alt="Sorena" loading="lazy">
+  </div>
+<!--/BUILD:MERKEN--></div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-head reveal">
+      <span class="eyebrow">Kom langs</span>
+      <h2>Contact & openingstijden</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:karin@karinravelli.nl">karin@karinravelli.nl</a></li>
+          <li><a href="tel:+31707371316">+31 (0)70 737 13 16</a></li>
+          <li><a href="tel:+31615211505">+31 (0)6 15 21 15 05</a></li>
+          <li style="margin-top:12px;">
+            <a href="https://www.instagram.com/karinravelli/" target="_blank" rel="noopener">Instagram →</a>
+          </li>
+        </ul>
+        <a class="btn-wa" href="https://wa.me/31615211505" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <div>
+        <h3>Adres</h3>
+        <ul>
+          <li>Langstraat 50</li>
+          <li>2242 KN Wassenaar</li>
+          <li style="margin-top:12px;">
+            <a href="https://maps.google.com/?q=Langstraat+50+2242+KN+Wassenaar" target="_blank" rel="noopener">
+              Routebeschrijving →
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Openingstijden</h3>
+        <div class="hours-row"><span>maandag</span><span>13:00 – 17:30</span></div>
+        <div class="hours-row"><span>dinsdag</span><span>10:00 – 17:30</span></div>
+        <div class="hours-row"><span>woensdag</span><span>10:00 – 17:30</span></div>
+        <div class="hours-row"><span>donderdag</span><span>10:00 – 17:30</span></div>
+        <div class="hours-row"><span>vrijdag</span><span>10:00 – 17:30</span></div>
+        <div class="hours-row"><span>zaterdag</span><span>10:00 – 17:00</span></div>
+        <div class="hours-row"><span>zondag</span><span class="closed">gesloten</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand">Ravel<span style="color:var(--brass);">li</span></a>
+    <div>Langstraat 50, 2242 KN Wassenaar · © <span class="build-year">2026</span> Ravelli</div>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+</script>
+
+</body>
+</html>
