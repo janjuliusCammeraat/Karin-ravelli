@@ -1,0 +1,9 @@
+[build]
+  # Netlify draait dit bij elke push; build.js injecteert de <img>-tags in de HTML
+  command = "node build.js"
+  # De site is statisch en staat in de root van de repo
+  publish = "."
+
+[build.environment]
+  # Vaste Node-versie zodat de build voorspelbaar blijft
+  NODE_VERSION = "20"
