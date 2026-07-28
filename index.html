@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ravelli — Sieraden, tassen & accessoires · Wassenaar</title>
 <meta name="description" content="Ravelli boutique in Wassenaar: unieke sieraden, oorbellen, tassen en accessoires. Persoonlijk advies door Karin. Langstraat 50, Wassenaar.">
-<link rel="canonical" href="https://karin-ravelli.nl/">
+<link rel="canonical" href="https://karinravelli.netlify.app/">
 
 <!-- Open Graph -->
 <meta property="og:type"        content="website">
-<meta property="og:url"         content="https://karin-ravelli.nl/">
+<meta property="og:url"         content="https://karinravelli.netlify.app/">
 <meta property="og:title"       content="Ravelli — Sieraden & accessoires · Wassenaar">
 <meta property="og:description" content="Boutique in Wassenaar met een zorgvuldig samengestelde collectie sieraden, oorbellen, tassen en accessoires.">
-<meta property="og:image"       content="https://karin-ravelli.nl/assets/img/karin-portret.jpg">
+<meta property="og:image"       content="https://karinravelli.netlify.app/assets/img/karin-portret.jpg">
 <meta property="og:locale"      content="nl_NL">
 
 <!-- Favicon: R in brass op espresso -->
@@ -21,6 +21,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Lokale SEO: structured data zodat Google Ravelli als winkel herkent -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JewelryStore",
+  "name": "Ravelli",
+  "description": "Boutique in Wassenaar met een zorgvuldig samengestelde collectie sieraden, oorbellen, tassen en accessoires.",
+  "image": "https://karinravelli.netlify.app/assets/img/karin-portret.jpg",
+  "url": "https://karinravelli.netlify.app/",
+  "telephone": "+31707371316",
+  "email": "karin@karinravelli.nl",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Langstraat 50",
+    "postalCode": "2242 KN",
+    "addressLocality": "Wassenaar",
+    "addressCountry": "NL"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "13:00", "closes": "17:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "17:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "17:00" }
+  ],
+  "sameAs": ["https://www.instagram.com/karinravelli/"]
+}
+</script>
 
 <style>
   :root{
