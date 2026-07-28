@@ -5,14 +5,19 @@
 Statische one-page boutique-site voor **Ravelli**, Langstraat 50, 2242 KN Wassenaar.
 Eigenaar: Karin Ravelli (niet technisch). Beheerder: Jan Julius Cammeraat.
 Vervangt een betaalde WordPress.com-site (karinravelli.online).
-Hosting: **Cloudflare Pages** (gratis), domein: **karin-ravelli.nl** (nog niet live).
+Hosting: **Netlify** (gratis). Domein: **nog te kopen** (via Netlify).
 
 ---
 
-## Huidige projectstatus (sessie 2026-06-02)
+## Huidige projectstatus (sessie 2026-07-28)
 
-De site is volledig gebouwd en lokaal klaar. **Nog niet gedeployed.**
-Volgende stap: git init → GitHub → Cloudflare Pages (zie README.md).
+De site is **LIVE op Netlify**: https://karinravelli.netlify.app
+- GitHub: github.com/janjuliusCammeraat/Karin-ravelli (branch `main`)
+- Elke `git push` bouwt automatisch via `netlify.toml` (command `node build.js`, publish `.`)
+- Netlify "Pretty URLs" staat aan → pagina's zonder `.html` (bijv. `/savr`, `/kettingen`)
+- **Nog geen eigen domein** — plan: er een kopen via Netlify (overweeg `karinravelli.nl`, matcht het e-mailadres). Bij aankoop: canonical/OG/JSON-LD/sitemap-URL's aanpassen (staan nu op karinravelli.netlify.app) + DNS.
+
+> Let op: eerder was het plan Cloudflare Pages + karin-ravelli.nl; dat is verlaten. Nu Netlify, domein zonder streepje.
 
 ---
 
@@ -24,6 +29,9 @@ Volgende stap: git init → GitHub → Cloudflare Pages (zie README.md).
 ├── kettingen.html        ← galerijpagina met lightbox (6 foto's)
 ├── oorbellen.html        ← galerijpagina met lightbox (12 foto's)
 ├── tassen.html           ← galerijpagina met lightbox (3 foto's)
+├── savr.html             ← SAVR productpagina (GEEN build.js-galerij; vaste content)
+├── netlify.toml          ← Netlify build-config (command node build.js, publish .)
+├── robots.txt · sitemap.xml ← lokale SEO
 ├── build.js              ← Node.js builder — schrijft <img>-tags in HTML
 ├── CLAUDE.md             ← dit bestand
 ├── README.md             ← Nederlandstalige handleiding voor Karin/beheerder
@@ -37,7 +45,8 @@ Volgende stap: git init → GitHub → Cloudflare Pages (zie README.md).
 │   ├── tassen.jpg        ← teaser op homepage (122 KB)
 │   └── over-ons.jpg      ← oud (niet meer gebruikt, mag weg)
 │
-├── merken/               ← 17 merklogo's (PNG/JPG/WebP) — DOOR KARIN BEWERKT
+├── merken/               ← 25 merklogo's (PNG/JPG/WebP) — DOOR KARIN BEWERKT (web-veilige namen!)
+├── savr/                 ← SAVR-beelden: logo + 5 kleuren (officiële mysavr.nl-foto's)
 ├── kettingen/            ← 6 foto's (01.jpg t/m 06.jpg) — DOOR KARIN BEWERKT
 ├── oorbellen/            ← 12 foto's (01.jpg t/m 12.jpg) — DOOR KARIN BEWERKT
 ├── tassen/               ← 3 foto's (01.jpg t/m 03.jpg) — DOOR KARIN BEWERKT
@@ -147,16 +156,23 @@ Karin hoeft Node.js NIET lokaal te installeren.
 
 ---
 
+## Wat gedaan in sessie 2026-07-28
+
+- Live gezet op **Netlify** (`netlify.toml` toegevoegd); git + GitHub waren al klaar
+- **Merken bijgewerkt** → 25 merken. Verwijderd: Mur, Nunoo, Nyka. Toegevoegd: BACS, BIBA, Loffs, NUNUBCN, Barong Barong, Carmen, Janette Marie, Piti Cuiti, Rose & Camellia, Sunny Cords, melé beach. Bestandsnamen met spaties/`&` web-veilig gemaakt (geen spaties/`&` in `/merken/`!). Verwisseling rechtgezet: `rose-c.png` bleek Rose & Camellia (→ `rose-camellia.png`), `images.jpg` bleek melé beach (→ `mele-beach.jpg`)
+- **Lokale SEO**: `JewelryStore` structured data (JSON-LD) in index.html + `robots.txt` + `sitemap.xml`
+- **SAVR-pagina** gebouwd: `savr.html` (persoonlijk alarm, product van mysavr.nl dat Ravelli verkoopt, €39,95). Eigen pagina met hero, verhaal, 5 kleuren, "hoe het werkt", verkoop-CTA. SAVR toegevoegd aan het menu op alle pagina's + in sitemap. Beelden in `/savr/` (officiële mysavr.nl-foto's)
+
 ## Openstaande punten / te doen
 
-- [ ] `.gitignore` aanmaken (backup/ en .claude/ uitsluiten)
-- [ ] Git-repo initialiseren en pushen naar GitHub
-- [ ] Koppelen aan Cloudflare Pages (build command: `node build.js`, output: `/`)
-- [ ] Custom domein karin-ravelli.nl instellen
-- [ ] DNS-records bij registrar instellen (CNAME @ → karin-ravelli.pages.dev)
-- [ ] over-ons.jpg verwijderen uit /assets/img/ (niet meer gebruikt)
-- [ ] Betere foto's plaatsen als Karin die aanlevert (WhatsApp-kwaliteit nu)
-- [ ] E-mailadres karin@karinravelli.nl: controleren of dit ook het nieuwe domein wordt
+- [ ] **Domein kopen** via Netlify (overweeg `karinravelli.nl`). Daarna: canonical/OG/JSON-LD/sitemap-URL's aanpassen + DNS instellen
+- [ ] **Google Bedrijfsprofiel** aanmaken (business.google.com) → Ravelli op Google Maps. Daarna sitemap indienen in Google Search Console
+- [ ] **Contactformulier** via Netlify Forms (gratis, ingebouwd) — nog te bouwen
+- [ ] **Google Maps-kaartje** in de contactsectie — nog te bouwen
+- [ ] `over-ons.jpg` verwijderen uit `/assets/img/` (niet meer gebruikt)
+- [ ] Losse `*-data.js` bestanden verwijderen (worden niet meer ingeladen)
+- [ ] Betere foto's plaatsen als Karin die aanlevert (merken/galerij zijn nu WhatsApp-kwaliteit)
+- [ ] Eigen SAVR-foto's als Karin die heeft (nu officiële mysavr.nl-beelden)
 - [ ] Node.js installeren als lokaal builden gewenst is
 
 ---
