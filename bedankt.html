@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedankt voor je bericht — Ravelli</title>
+<meta name="description" content="Je bericht is verstuurd. Karin neemt zo snel mogelijk contact met je op.">
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232A2420'/%3E%3Ctext x='50' y='73' font-family='Georgia,serif' font-size='66' font-weight='300' fill='%23A8854E' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivory:#FAF6EF; --sand:#F1E8D9; --espresso:#2A2420;
+    --muted:#6E645A; --brass:#A8854E; --brass-dark:#8A6C3B; --line:#DDD1BD;
+    --display:'Fraunces',Georgia,serif;
+    --body:'Jost',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--ivory);color:var(--espresso);
+    font-family:var(--body);font-weight:300;line-height:1.7;
+    display:flex;flex-direction:column;min-height:100vh;
+  }
+  a{color:var(--brass);text-decoration:none;transition:color .25s;}
+  a:hover{color:var(--brass-dark);}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;width:100%;}
+
+  header{background:var(--espresso);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .brand{
+    font-family:var(--display);font-size:1.6rem;font-weight:300;
+    color:var(--ivory);letter-spacing:.04em;
+  }
+  .brand span{color:var(--brass);}
+  nav ul{list-style:none;display:flex;gap:26px;}
+  nav a{color:#C9BEAF;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;}
+  nav a:hover{color:var(--brass);}
+
+  main{flex:1;display:flex;align-items:center;padding:100px 0;}
+  .bedankt{max-width:620px;margin:0 auto;text-align:center;}
+  .eyebrow{
+    display:block;margin-bottom:18px;
+    font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);
+  }
+  .bedankt h1{
+    font-family:var(--display);font-weight:300;
+    font-size:clamp(2rem,4.5vw,3rem);line-height:1.15;margin-bottom:20px;
+  }
+  .bedankt h1 em{font-style:italic;color:var(--brass);}
+  .bedankt p{color:var(--muted);font-size:1.05rem;}
+  .terug{
+    display:inline-block;margin-top:34px;padding:13px 34px;border-radius:40px;
+    background:var(--espresso);color:var(--ivory);
+    font-size:.85rem;letter-spacing:.08em;
+    transition:background .25s,transform .2s;
+  }
+  .terug:hover{background:var(--brass);color:var(--ivory);transform:translateY(-2px);}
+  .direct{
+    margin-top:40px;padding-top:28px;border-top:1px solid var(--line);
+    font-size:.92rem;color:var(--muted);
+  }
+
+  footer{
+    background:var(--espresso);color:#C9BEAF;
+    text-align:center;padding:40px 0;font-size:.82rem;letter-spacing:.04em;
+  }
+  footer .brand{font-size:1.4rem;display:inline-block;margin-bottom:8px;}
+
+  @media(max-width:900px){
+    .wrap{padding:0 22px;}
+    .nav{height:auto;flex-direction:column;gap:12px;padding:16px 0;}
+    nav ul{justify-content:center;gap:16px;flex-wrap:wrap;}
+    main{padding:70px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Ravel<span>li</span></a>
+    <nav>
+      <ul>
+        <li><a href="kettingen.html">Kettingen</a></li>
+        <li><a href="oorbellen.html">Oorbellen</a></li>
+        <li><a href="tassen.html">Tassen</a></li>
+        <li><a href="savr.html">SAVR</a></li>
+        <li><a href="index.html#merken">Merken</a></li>
+        <li><a href="index.html#over">Over Karin</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="bedankt">
+      <span class="eyebrow">Verstuurd</span>
+      <h1>Bedankt voor je <em>bericht</em></h1>
+      <p>Je bericht is goed aangekomen. Karin leest het persoonlijk en neemt
+         zo snel mogelijk contact met je op.</p>
+      <a class="terug" href="index.html">Terug naar de website</a>
+      <div class="direct">
+        Liever direct contact? Bel <a href="tel:+31707371316">+31 (0)70 737 13 16</a>,
+        app via <a href="https://wa.me/31615211505" target="_blank" rel="noopener">WhatsApp</a>
+        of loop binnen aan de Langstraat 50 in Wassenaar.
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand">Ravel<span style="color:var(--brass);">li</span></a>
+    <div>Langstraat 50, 2242 KN Wassenaar · © <span class="build-year">2026</span> Ravelli</div>
+  </div>
+</footer>
+
+</body>
+</html>

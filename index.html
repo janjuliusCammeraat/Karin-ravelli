@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
@@ -64,7 +64,7 @@
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:clip;}
   body{
     font-family:var(--body);
     background:var(--ivory);
@@ -72,7 +72,7 @@
     line-height:1.65;
     font-weight:300;
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    overflow-x:clip;
   }
   section{scroll-margin-top:84px;}
   a{color:inherit;text-decoration:none;}
@@ -225,6 +225,45 @@
   .hours-row span:last-child{color:var(--espresso);}
   .closed{color:var(--brass-dark);font-style:italic;}
 
+  /* ── CONTACTFORMULIER + KAART ────────────── */
+  .contact-extra{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;
+    margin-top:56px;padding-top:48px;border-top:1px solid var(--line);
+  }
+  .contact-form .field{margin-bottom:18px;}
+  .contact-form label{
+    display:block;margin-bottom:6px;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  }
+  .contact-form input,
+  .contact-form textarea{
+    width:100%;padding:12px 14px;
+    font-family:var(--body);font-size:1rem;color:var(--espresso);
+    background:var(--ivory);border:1px solid var(--line);border-radius:3px;
+    transition:border-color .25s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus{outline:none;border-color:var(--brass);}
+  .contact-form textarea{resize:vertical;min-height:130px;}
+  .btn-send{
+    display:inline-block;margin-top:4px;padding:13px 34px;
+    border:none;border-radius:40px;
+    background:var(--espresso);color:var(--ivory);
+    font-family:var(--body);font-size:.85rem;letter-spacing:.08em;
+    cursor:pointer;transition:background .25s,transform .2s;
+  }
+  .btn-send:hover{background:var(--brass);transform:translateY(-2px);}
+  .form-note{margin-top:14px;font-size:.8rem;color:var(--muted);}
+  .hp{position:absolute;left:-9999px;}  /* honeypot tegen spambots */
+
+  .map-col{display:flex;flex-direction:column;}
+  .map-embed{
+    flex:1;width:100%;min-height:340px;
+    border:1px solid var(--line);border-radius:3px;
+    filter:grayscale(.35);transition:filter .4s;
+  }
+  .map-embed:hover{filter:grayscale(0);}
+
   /* ── FOOTER ──────────────────────────────── */
   footer{
     background:var(--espresso);color:#C9BEAF;
@@ -233,8 +272,14 @@
   footer .brand{font-size:1.4rem;color:var(--ivory);display:inline-block;margin-bottom:8px;}
 
   /* ── REVEAL ──────────────────────────────── */
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1);}
-  .reveal.in{opacity:1;transform:none;}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1);will-change:opacity,transform;}
+  .reveal.in{opacity:1;transform:none;will-change:auto;}
+
+  /* Respecteer de systeeminstelling "minder beweging" */
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
 
   /* ── RESPONSIVE ──────────────────────────── */
   @media(max-width:900px){
@@ -251,6 +296,7 @@
     .cat-grid{grid-template-columns:1fr 1fr;gap:14px;}
     .merk-grid{grid-template-columns:repeat(3,1fr);}
     .contact-grid{grid-template-columns:1fr;gap:36px;}
+    .contact-extra{grid-template-columns:1fr;gap:36px;margin-top:40px;padding-top:36px;}
   }
   @media(max-width:520px){
     .cat-grid{grid-template-columns:1fr;}
@@ -341,7 +387,25 @@
     </div>
     <div class="merk-grid reveal"><!--BUILD:MERKEN-->
   <div class="merk-tile">
+    <img src="merken/BACS.png" alt="BACS" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/BIBA.png" alt="BIBA" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/Loffs.png" alt="Loffs" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/NUNUBCN.png" alt="NUNUBCN" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/barong-barong.png" alt="Barong Barong" loading="lazy">
+  </div>
+  <div class="merk-tile">
     <img src="merken/camps.png" alt="Camps" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/carmen.jpg" alt="Carmen" loading="lazy">
   </div>
   <div class="merk-tile">
     <img src="merken/coco.jpeg" alt="Coco" loading="lazy">
@@ -354,6 +418,9 @@
   </div>
   <div class="merk-tile">
     <img src="merken/gas.png" alt="Gas" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/janette-marie.jpg" alt="Janette Marie" loading="lazy">
   </div>
   <div class="merk-tile">
     <img src="merken/kalli.png" alt="Kalli" loading="lazy">
@@ -371,16 +438,16 @@
     <img src="merken/lott-gioielli.png" alt="Lott Gioielli" loading="lazy">
   </div>
   <div class="merk-tile">
-    <img src="merken/mur.png" alt="Mur" loading="lazy">
-  </div>
-  <div class="merk-tile">
-    <img src="merken/nunoo.webp" alt="Nunoo" loading="lazy">
-  </div>
-  <div class="merk-tile">
-    <img src="merken/nyka.jpg" alt="Nyka" loading="lazy">
+    <img src="merken/mele-beach.jpg" alt="Mele Beach" loading="lazy">
   </div>
   <div class="merk-tile">
     <img src="merken/olivia-dar.png" alt="Olivia Dar" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/piti-cuiti.jpg" alt="Piti Cuiti" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/rose-camellia.png" alt="Rose Camellia" loading="lazy">
   </div>
   <div class="merk-tile">
     <img src="merken/santibe.png" alt="Santibe" loading="lazy">
@@ -390,6 +457,9 @@
   </div>
   <div class="merk-tile">
     <img src="merken/sorena.webp" alt="Sorena" loading="lazy">
+  </div>
+  <div class="merk-tile">
+    <img src="merken/sunny-cords.jpg" alt="Sunny Cords" loading="lazy">
   </div>
 <!--/BUILD:MERKEN--></div>
   </div>
@@ -443,6 +513,38 @@
         <div class="hours-row"><span>vrijdag</span><span>10:00 – 17:30</span></div>
         <div class="hours-row"><span>zaterdag</span><span>10:00 – 17:00</span></div>
         <div class="hours-row"><span>zondag</span><span class="closed">gesloten</span></div>
+      </div>
+    </div>
+
+    <div class="contact-extra reveal">
+      <div>
+        <h3>Stuur een bericht</h3>
+        <form class="contact-form" name="contact" method="POST" action="/bedankt"
+              data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label>Laat dit veld leeg: <input name="bot-field"></label></p>
+          <div class="field">
+            <label for="naam">Naam</label>
+            <input id="naam" name="naam" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mailadres</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="bericht">Bericht</label>
+            <textarea id="bericht" name="bericht" rows="5" required></textarea>
+          </div>
+          <button class="btn-send" type="submit">Versturen</button>
+          <p class="form-note">Je bericht komt rechtstreeks bij Karin binnen. Liever bellen of appen? Zie hiernaast.</p>
+        </form>
+      </div>
+
+      <div class="map-col">
+        <h3>Waar je ons vindt</h3>
+        <iframe class="map-embed" title="Kaart met de locatie van Ravelli, Langstraat 50 in Wassenaar"
+                src="https://www.google.com/maps?q=Langstraat+50,+2242+KN+Wassenaar&amp;output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>

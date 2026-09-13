@@ -30,9 +30,11 @@ De site is **LIVE op Netlify**: https://karinravelli.netlify.app
 ├── oorbellen.html        ← galerijpagina met lightbox (12 foto's)
 ├── tassen.html           ← galerijpagina met lightbox (3 foto's)
 ├── savr.html             ← SAVR productpagina (GEEN build.js-galerij; vaste content)
+├── bedankt.html          ← bevestigingspagina na verzenden contactformulier (noindex)
 ├── netlify.toml          ← Netlify build-config (command node build.js, publish .)
 ├── robots.txt · sitemap.xml ← lokale SEO
-├── build.js              ← Node.js builder — schrijft <img>-tags in HTML
+├── build.js              ← Node.js builder — schrijft <img>-tags in HTML (draait op Netlify)
+├── build.py              ← identieke Python-port, voor lokaal bouwen (Node ontbreekt hier)
 ├── CLAUDE.md             ← dit bestand
 ├── README.md             ← Nederlandstalige handleiding voor Karin/beheerder
 ├── CLAUDE-CODE-PROMPT.md ← de oorspronkelijke opdrachtprompt (bewaar dit)
@@ -73,8 +75,8 @@ De site is **LIVE op Netlify**: https://karinravelli.netlify.app
 **Galerijen: `object-fit: cover`** (bijgesneden, gelijke verhouding 4:3)
 **Merkenmuur: `object-fit: contain` op witte tegel** (logo nooit bijsnijden!)
 
-Op Cloudflare Pages draait `node build.js` automatisch als build-command.
-Lokaal (Node.js niet geïnstalleerd): gebruik het PowerShell-equivalent onderaan dit bestand.
+Op Netlify draait `node build.js` automatisch als build-command.
+Lokaal (Node.js niet geïnstalleerd): draai `python build.py` — identiek resultaat.
 
 ---
 
@@ -121,7 +123,7 @@ Lightbox: vanilla JS, progressive enhancement (werkt ook zonder JS: foto's zijn 
 
 1. Foto in de juiste map zetten (`/merken/`, `/kettingen/`, `/oorbellen/` of `/tassen/`)
 2. `git add . && git commit -m "foto toegevoegd" && git push`
-3. Cloudflare Pages draait `node build.js` automatisch en deployt
+3. Netlify draait `node build.js` automatisch en deployt
 
 Karin hoeft Node.js NIET lokaal te installeren.
 
@@ -163,21 +165,50 @@ Karin hoeft Node.js NIET lokaal te installeren.
 - **Lokale SEO**: `JewelryStore` structured data (JSON-LD) in index.html + `robots.txt` + `sitemap.xml`
 - **SAVR-pagina** gebouwd: `savr.html` (persoonlijk alarm, product van mysavr.nl dat Ravelli verkoopt, €39,95). Eigen pagina met hero, verhaal, 5 kleuren, "hoe het werkt", verkoop-CTA. SAVR toegevoegd aan het menu op alle pagina's + in sitemap. Beelden in `/savr/` (officiële mysavr.nl-foto's)
 
+## Wat gedaan in sessie 2026-09-13
+
+- **Domein blijkt al van Karin**: `karinravelli.nl` staat geregistreerd bij **Hostnet**
+  (NS `ns01/ns02.hostnet.nl`), met daar ook haar mailbox (MX → `mailpod13...hostnet.nl`)
+  en een webshop op **Mijnwebwinkel** (A → 77.111.243.43). Er hoeft dus niets gekocht te worden.
+  → Bij het omzetten naar Netlify: **nameservers bij Hostnet laten** en alleen het A-record +
+  `www` verzetten, anders ligt `karin@karinravelli.nl` eruit.
+  → Openstaande vraag aan Karin: blijft de Mijnwebwinkel-shop bestaan (dan naar `shop.karinravelli.nl`)
+  en mag `karinravelli.online` opgezegd worden? Uitleg voor haar staat in
+  `Documents\Karin-vragen-website-en-domein.docx`.
+- **Contactformulier** gebouwd via Netlify Forms (honeypot tegen spam, werkt zonder JS),
+  met eigen bevestigingspagina `bedankt.html` (`action="/bedankt"`).
+  → Nog te doen in Netlify: *Forms → Form notifications* → mail naar karin@karinravelli.nl
+- **Google Maps-kaartje** in de contactsectie (keyless embed, geen API-sleutel nodig)
+- **Opgeruimd**: `*-data.js` (4×) en `assets/img/over-ons.jpg` verwijderd
+- **`build.py` toegevoegd** — exacte Python-port van build.js. Node staat lokaal niet
+  geïnstalleerd, waardoor `index.html` in de repo sinds juli de **oude merkenlijst** (17 logo's,
+  incl. de verwijderde mur/nunoo/nyka) bevatte. Live klopte het altijd, want Netlify draait
+  build.js bij elke deploy — alleen de lokale preview liep achter. Nu opnieuw gebouwd: 25 merken,
+  lokaal identiek aan live.
+- **Scroll-fix** op alle 5 pagina's: `overflow-x:hidden` op `body` maakte van body een eigen
+  scroll-container, wat botste met `scroll-behavior:smooth` op `html` → schokkerig/springend
+  scrollen. Nu `overflow-x:clip` op html én body. Plus `will-change` opgeruimd na de reveal
+  en een `prefers-reduced-motion`-blok.
+- UTF-8 BOM uit de HTML-bestanden verdwenen (bijeffect, onschadelijk)
+
 ## Openstaande punten / te doen
 
-- [ ] **Domein kopen** via Netlify (overweeg `karinravelli.nl`). Daarna: canonical/OG/JSON-LD/sitemap-URL's aanpassen + DNS instellen
+- [ ] **Domein omzetten** — niet kopen, Karin heeft `karinravelli.nl` al bij Hostnet.
+      Wacht op haar antwoord over de Mijnwebwinkel-shop. Daarna: A-record + `www` naar Netlify
+      (NS bij Hostnet laten i.v.m. mail!) en canonical/OG/JSON-LD/sitemap-URL's omzetten
 - [ ] **Google Bedrijfsprofiel** aanmaken (business.google.com) → Ravelli op Google Maps. Daarna sitemap indienen in Google Search Console
-- [ ] **Contactformulier** via Netlify Forms (gratis, ingebouwd) — nog te bouwen
-- [ ] **Google Maps-kaartje** in de contactsectie — nog te bouwen
-- [ ] `over-ons.jpg` verwijderen uit `/assets/img/` (niet meer gebruikt)
-- [ ] Losse `*-data.js` bestanden verwijderen (worden niet meer ingeladen)
 - [ ] Betere foto's plaatsen als Karin die aanlevert (merken/galerij zijn nu WhatsApp-kwaliteit)
 - [ ] Eigen SAVR-foto's als Karin die heeft (nu officiële mysavr.nl-beelden)
-- [ ] Node.js installeren als lokaal builden gewenst is
+- [ ] E-mailnotificatie voor het contactformulier aanzetten in Netlify (Forms → notifications)
+- [ ] Node.js installeren als je build.js lokaal wilt draaien — niet nodig, `python build.py` doet hetzelfde
 
 ---
 
-## PowerShell-build (als Node.js niet beschikbaar is)
+## PowerShell-build (verouderd — gebruik `python build.py`)
+
+> **Let op:** dit blok heeft een fout in `To-Label`: het forceert alles na de eerste letter naar
+> kleine letters, dus `BACS.png` wordt "Bacs" en `NUNUBCN.png` wordt "Nunubcn" — afwijkend van
+> wat build.js op Netlify genereert. Gebruik `python build.py`; die is een exacte port.
 
 Kopieer dit blok in een PowerShell-terminal in de projectmap:
 
